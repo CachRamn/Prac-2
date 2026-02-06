@@ -1,0 +1,182 @@
+<!--  El <!Doctype> es una declaración que representa el tipo de documento y ayuda a los navegadores a mostrar las páginas web
+Todos los documentos HTML deben comenzar con una declaración <!DOCTYPE> por consecuencia tienen que ir antes de cualquier otra
+etiqueta-->  
+
+<!DOCTYPE html>
+<!-- EL atributo "lang" marcara el idioma en el que se mostrará el contenido 
+ Nos va a proporcionar información adicional sobre los elementos html-->
+
+<html lang="en">
+<!-- El elemento <head> contiene metainformación sobre la pagina -->
+
+<head>
+    <!-- La etiqueta <meta> define metadatos que no se muestran directamente en la página web 
+     Pero es esencial para que los navegadores entiendan cómo mostrar la página -->
+     <!-- El charset="UTF-8" define el conjunto de caracteres que se utilizará en la página
+      (Formato de Transformación Unicode de 8 bits) -->
+
+    <meta charset="UTF-8">
+        <!-- El atributo "viewport" es esencial para el diseño web responsivo
+        Controla cómo se muestra la página en dispositivos móviles y ajusta el tamaño de la ventana gráfica -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- La etiqueta <title> define el título de la página web que se muestra en la pestaña del navegador -->
+
+    <title>Mi Página Web :D</title>
+</head>
+<!-- La etiqueta <body> define el cuerpo del documento HTML, es la parte visible de la página html -->
+
+<body>
+    <!-- La etiqueta <h1> define un encabezado de nivel 1, el orden de importancia va de h1 a h6 de mayor a menor
+         importancia -->
+
+    <h1>Este es mi primer Título</h1>
+    <h2>Este es mi segundo Título</h2>
+    <h3>Este es mi tercer Título</h3>
+    <h4>Este es mi cuarto Título</h4>
+    <h5>Este es mi quinto Título</h5>
+    <h6>Este es mi sexto Título</h6>
+        <!-- La etiqueta <br> inserta un salto de línea -->
+
+    <br>
+        <!-- La etiqueta <hr> inserta una línea horizontal -->
+
+    <hr>
+    <br>
+    <h2>Párrafos</h2>
+
+    <p>Este es un párrafo de texto. Los párrafos se definen con la etiqueta</p>
+    <p>Este es un párrafo de texto. Los párrafos se definen con la etiqueta</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus illum 
+        sunt sequi cumque ratione nulla perferendis architecto? Obcaecati 
+        voluptatem magni numquam enim at quisquam perspiciatis, soluta doloremque, 
+        beatae possimus fugiat.</p>
+
+        <h2>Texto Preformateado</h2>
+        <pre>
+            Este texto está preformateado y se muestra tal cual se escribe en el código HTML.
+
+            Esto significa que los espacios y saltos de línea se mantienen, lo que es útil para 
+            mostrar código o texto con formato específico.
+
+                Y las tabulaciones también se conservan.
+        </pre>
+
+        <br>
+        <hr>
+        <br>
+
+        <h2>Enlaces</h2>
+        <!-- La etiqueta <div> define un contenedor para agrupar elementos HTML -->
+
+        <div>
+            <a href="https://www.facebook.com">Este enlace lleva a facebook</a>
+        </div>
+        <!-- Los enlaces son elementos que permiten navegar a otras páginas web y en HTML se definen como <a> 
+            y el destino del enlace se define con el atributo "href" -->
+
+        <a href="https://github.com/CachRamn/CachRamn">Este enlace lleva a mi repositorio de github</a>
+
+        <br>
+        <!-- El atributo "target" en los enlaces define cómo se abrirá el enlace. 
+             "_blank" hace que el enlace se abra en una nueva pestaña -->
+
+        <a href="https://google.com" target="_blank">Este enlace lleva a google y abrirá una nueva pestaña</a>
+        <br>
+
+        <h2>Correos</h2>
+        <a href="mailto:cristoferballesterosgonzalez@gmail.com">Envía Correo en este link</a>
+
+        <h2>Numero de telefono</h2>
+        <a href="tel:4421234567">Llamar al número 4421234567</a>
+
+        <h2>Whatsapp</h2>
+        <a href="https://wa.me/524421234567" target="_blank">Enviar mensaje por Whatsapp al 4421234567</a>
+
+        <br><br><br><br>
+        <hr>
+        <br>
+
+        <h2>Imágenes</h2>
+        <!-- La etiqueta <img> se utiliza para insertar imágenes en una página web
+             El atributo "src" especifica la ruta de la imagen
+             El atributo "alt" proporciona un texto alternativo que se muestra si la imagen no se puede cargar
+             Los atributos "width" y "height" definen el tamaño de la imagen en píxeles -->
+
+        <h3>Imagen 1</h3>
+        <img src="https://via.placeholder.com/150" alt="Imagen cargando" width="250" height="250">
+
+        <h3>Imagen 2</h3>
+        <img src="https://via.placeholder.com/150" alt="Imagen 2argando" width="250" height="250">
+        <!-- La etiqueta <figure> se utiliza para agrupar una imagen y su pie de foto
+             La etiqueta <figcaption> define el pie de foto para la imagen -->
+
+        <figure>
+            <img src="https://via.placeholder.com/300" alt="Imagen con pie de foto" width="300" height="300">
+            <figcaption>Esta es una imagen con un pie de foto</figcaption>
+        </figure>
+
+        <h3>Imagen 3</h3>
+        <figure></figure>
+            <img src="https://via.placeholder.com/150" alt="Imagen 3 cargando" width="250" height="250">
+            <a href="">
+                <figcaption>Esta es una imagen con un enlace en el pie de foto</figcaption>
+            </a>
+        </figure>
+
+        <h3>Imagen 4</h3>
+        <figure>
+            <a href="https://www.google.com">
+                <img src="https://via.placeholder.com/150" alt="Imagen 4">
+            </a>
+            <figcaption>Esta es una imagen que es un enlace a google</figcaption>
+        </figure>
+
+        <br><br><br>
+        <hr>
+        <br>
+
+        <h2>Lista de elementos</h2>
+        <!-- La etiqueta <ul> define una lista desordenada
+             La etiqueta <ol> define una lista ordenada
+             La etiqueta <li> define un elemento de la lista -->
+
+        <ul>
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+        </ul>
+
+        <h2>Lista ordenada</h2>
+        <ol>
+            <li>Primer elemento</li>
+            <li>Segundo elemento</li>
+            <li>Tercer elemento</li>
+        </ol>
+
+        <br><br><br>
+        <hr>
+        <br>
+
+        <h2>Botones</h2>
+        <!-- La etiqueta <button> define un botón clicable -->
+
+        <button>Haz clic aquí</button>
+        <br><br>
+        <!-- El atributo "onclick" en un botón define una acción que se ejecuta cuando se hace clic en el botón-->
+
+        <button onclick="alert('¡Botón clicado!')">Clic para alerta</button>
+        <br><br>
+
+        <button onclick="window.location.href='https://www.wikipedia.org'">Ir a Wikipedia</button>
+
+        <br><br>
+
+        <button onclick="window.open('https://www.youtube.com', '_blank')">Abrir YouTube en nueva pestaña</button>
+
+        <br><br><br>
+        <hr>
+        <br>
+
+</body>
+</html>
