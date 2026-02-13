@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ea-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de reporte de incidentes</title>
+</head>
+<body>
+    <!-- El elemento <header> define un encabezado para el documento o una sección, es un contenedor semántico que define lo que 
+        está dentro, introducción, títulos o secciones -->
+    <header>
+        <h1>Plataforma de Seguridad Institucional</h1>
+        <p>Reporte Oficial de incidentes y Amenazas Digitales</p>
+    </header>
+    <br>
+    <!-- La etiqueta main le indica al navegador que es el contenido principal del documento -->
+    <main>
+        <!-- La etiqueta <form> define un formulario HTML para la entrada de datos del usuario, el atributo "autocomplete" se utiliza para controlar si el 
+            navegador debe o no completar automáticamente los campos del formulario basándose en entradas anteriores del usuario. -->
+        <form id="miFormulario" autocomplete="off">
+
+            <!-- La etiqueta <fieldset> se utiliza para agrupar elementos relacionados dentro de un formulario, y la 
+                etiqueta <legend> se utiliza para proporcionar un título o leyenda para el grupo de elementos dentro del 
+                fieldset. -->
+            <fieldset>
+                <legend>Datos de Analista / Reportante</legend>
+
+                <p>
+                    <!-- La etiqueta <label> se utiliza para definir una etiqueta para un elemento de formulario, el 
+                        atributo "for" se utiliza para asociar la etiqueta con un elemento de formulario específico, el
+                        valor del atributo "for" debe coincidir con el id del elemento de formulario al que se refiere. -->
+                    <label for="analista_id">Id de Analista</label>
+                    <br>
+                    <!-- La etiqueta<input> define un campo de entrada de datos del usuario, los atributos utilizados fueron 
+                     los siguientes: Type que define la naturaleza del campo de entrada, id que identifica al campo de entrada, 
+                     name que asigna un nombre al campo de entrada, pattern que define una expresión regular que el valor del 
+                     campo de entrada debe cumplir para ser considerado válido, title que proporciona un mensaje de error personalizado 
+                     si el valor del campo de entrada no cumple con el patrón especificado, y required que indica que el campo de entrada 
+                     es obligatorio y debe ser completado antes de enviar el formulario. -->
+                    <input type="text" id="analista_id" name="analista_id" pattern="UAQFIF-[0-9]{3}" title="Debe de iniciar
+                        con 'UAQFIF-' seguido de tres dígitos" placeholder="UAQFIF-123" required>
+                </p>
+                <p>
+
+                    <label for="email">Coreo Institucional</label>
+                    <br>
+                    <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@uaq\.mx" title="Debe ser un correo institucional de la UAQ"
+                        placeholder="analista@uaq.mx" required>
+                </p>
+                <p>
+                    <label for="telefono">Teléfono de contacto</label>
+                    <br>
+                    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" title="Debe ser un número telefónico de 10 dígitos"
+                        placeholder="5512345678" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Clasificación del incidente</legend>
+
+                <p>
+                    <!-- La etiqueta <select> se utiliza para crear un menú desplegable, el atributo "name" se utiliza 
+                    para asignar un nombre al menú desplegable, el atributo "id" se utiliza para identificar el menú
+                    desplegable, y el atributo "required" indica que el campo es obligatorio y debe ser completado antes
+                    de enviar el formulario. -->
+                    <select name="Sistema" id="sistema" required>
+                        <!-- La etiqueta <option> se utiliza para definir una opción dentro de un menú desplegable, el atributo "value" se utiliza para asignar un valor a la opción, 
+                            que se enviará al servidor cuando se seleccione esa opción. -->
+                        <option value="">Selecciona el sistema afectado</option>
+                        <option value="Sistema de Gestión Académica">Sistema de Gestión Académica</option>
+                        <option value="Sistema de Correo Institucional">Sistema de Correo Institucional</option>
+                        <option value="Sistema de Administración de Recursos">Sistema de Administración de Recursos</option>
+                        <option value="Sistema de Biblioteca Digital">Sistema de Biblioteca Digital</option>
+                        <option value="Sistema de Gestión de Proyectos">Sistema de Gestión de Proyectos</option>
+                    </select>
+                </p>
+
+                <p>
+
+                    <label for="codigo_estado">Códigos de estado del incidente HTTP</label>
+                    <br>
+                    <!-- La etiqueta <input> con el atributo "list" se utiliza para crear un campo de entrada de texto que ofrece sugerencias al usuario basadas en una lista predefinida de opciones, 
+                         la etiqueta <datalist> se utiliza para definir esa lista de opciones, y cada opción dentro del datalist se define con la etiqueta <option>. -->
+                    <input list="codigo_estado" id="codigo_http" name="codigo_http" placeholder="Ejm: 404" required>
+                    <datalist id="codigo_http">
+                        <option value="200 - OK (Solicitud exitosa)"></option>
+                        <option value="201 - Created (Creado)"></option>
+                        <option value="202 - Accepted (Aceptado)"></option>
+                        <option value="204 - No Content (Sin contenido)"></option>
+                        
+                        <option value="400 - Bad Request (Sintaxis Inválida)"></option>
+                        <option value="401 - Unauthorized (No autorizado)"></option>
+                        <option value="403 - Forbidden (Prohibido)"></option>
+                        <option value="404 - Not Found (No encontrado)"></option>
+                        <option value="500 - Internal Server Error (Error interno del servidor)"></option>
+
+                        <option value="500 - Internal Server Error"></option>
+                        <option value="502 - Bad Gateway (fallo en la comunicación con el servidor)"></option>
+                        <option value="503 - Service Unavailable (Servicio no disponible)"></option>
+                        <option value="504 - Gateway Timeout (Tiempo de espera agotado)"></option>
+                        <option value="505 - HTTP Version Not Supported (Versión HTTP no soportada)"></option>
+                    </datalist>
+
+                </p>
+                <p>
+
+                    <label for="url_phishing">URL del sitio phishing</label>
+                    <br>
+                    <input type="url" id="url_phishing" name="url_phishing" placeholder="https://ejemplo.com/phishing" required>
+
+                </p>
+                <p>
+
+                    <label for="fecha">Fecha y hora del incidente</label>
+                    <br>
+                    <!-- La etiqueta <input> con el atributo "type" establecido en "datetime-local" se utiliza para crear un 
+                    campo de entrada que permite al usuario seleccionar una fecha y hora local, el atributo "id" se utiliza 
+                    para identificar el campo de entrada, el atributo "name" se utiliza para asignar un nombre al campo de 
+                    entrada, y el atributo "required" indica que el campo es obligatorio y debe ser completado antes de 
+                    enviar el formulario. -->
+                    <input type="datetime-local" id="fecha" name="fecha" required>
+
+                </p>
+                <p>
+
+                    <label>Criticidad del incidente</label>
+                    <br>
+                    <!-- La etiqueta <input> con el atributo "type" establecido en "radio" se utiliza para crear botones de 
+                    opción, el atributo "id" se utiliza para identificar cada botón de opción, el atributo "name" se 
+                    utiliza para agrupar los botones de opción, el atributo "value" se utiliza para asignar un valor a cada 
+                    botón de opción, y el atributo "required" indica que al menos un botón de opción debe ser seleccionado 
+                    antes de enviar el formulario. -->
+                    <input type="radio" id="baja" name="criticidad" value="baja" required>
+                    <label for="baja">Baja</label>
+                    <br>
+                    <input type="radio" id="media" name="criticidad" value="media">
+                    <label for="media">Media</label>
+                    <br>
+                    <input type="radio" id="alta" name="criticidad" value="alta">
+                    <label for="alta">Alta</label>
+                    <br>
+
+                </p>
+
+            </fieldset>
+
+        </form>
+    </main>
+
+</body>
+</html>
