@@ -145,8 +145,121 @@
 
             </fieldset>
 
+            <fieldset>
+
+                <legend>Activos Comprometidos</legend>
+                <p>Marque los elementos que presentan anomalias</p>
+
+                <p>
+                    <!--El tipo checkbox permite marcar múltiples opciones -->
+                    <input type="checkbox" id="Equipo_final" name="activos" value="endpoint">
+                    <label for="Equipo_final">Equipos de usuario (PC, laptop)</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="servidor" name="activos" value="server">
+                    <label for="servidor">Servidores de aplicación</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="base_datos" name="activos" value="devices">
+                    <label for="base_datos">Dispositivos Mobiles</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="red" name="activos" value="network">
+                    <label for="red">Dispositivos de red (switches, routers)</label>
+                </p>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Evidencia y respuesta inicial</legend>
+
+                <p>
+                    <label for="equipos">Número de equipos comprometidos (1-100)</label>
+                    <br>
+                    <!--Con el valor number podemos hacer un contador donde el atributo min establece el valor mínimo 
+                    permitido y max establece el valor máximo permitido, el atributo value establece el valor inicial 
+                    del campo -->
+                    <input type="number" id="equipos" name="equipos" min="1" max="100" value="1" required>
+                </p>
+                <p>
+                    <label for="log">Adjuntar el log de incidente (.log ó .txt)</label>
+                    <br>
+                    <!--El valor file permite seleccionar un archivo del sistema de archivos del usuario, mientras que
+                    el atributo accept especifica los tipos de archivos permitidos -->
+                    <input type="file" id="log" name="archivo_log" accept=".log,.txt" required>
+                </p>
+                <p>
+                    <!--La etiqueta textarea permite ingresar texto multilínea, el atributo minlength establece 
+                    la cantidad mínima de caracteres permitidos, el atributo maxlength establece la cantidad máxima
+                     de caracteres permitidos, y el atributo placeholder muestra un texto de ayuda al usuario -->
+                    <label for="commentarios">Descripción del incidente</label>
+                    <br>
+                    <textarea id="commentarios" name="comentarios" rows="4" cols="50" minlength="20" maxlength="50" placeholder="Minimo 20 caracteres sobre lo detectado" required></textarea>
+                </p>
+                <p>
+                    <!--El valor range permite seleccionar un valor numérico dentro de un rango, el atributo step establece el
+                     incremento o decremento del valor, el atributo step nos indica el incremento o decremento del valor -->
+                     <!--El atrinuto oninput actualiza el valor del output cada vez que se mueve el slider -->
+                    <label for="certeza">Nivel de certeza del incidente (1-100)</label>
+                    <br>
+                    <input type="range" id="certeza" name="certeza" min="1" max="100"
+                    oninput="output_certeza = this.value + '%'" step="10" required>
+                    <output id="output_certeza">50%</output>
+                </p>
+
+            </fieldset>
+            <!-- es una especie de honeypot para los bots que rellenan automáticamente los formularios puesto que por el 
+             atributo style no se muestra al usuario. El atributo tabindex="-1" evita que el campo sea enfocado con el 
+             teclado -->
+            <div style="display: none;" aria-hidden="true">
+                <label for="bot_check"> Si ves esto, no lo llenes</label>
+                <input type="text" id="bot_check" name="bot_check" tabindex="-1">
+            </div>
+
+            <div style="margin-top: 30px; margin-bottom: 50px;">
+                <!-- El atributo onclick ejecuta una función JavaScript cuando se hace clic en el botón -->
+                <button type="button" onclick="confirmarEnvio()" style="padding: 10px 20px; cursor: pointer;">
+                    Enviar Reporte al centro de análisis
+                </button>
+
+                <button type="reset" style="padding: 10px 20px; cursor: pointer; margin-left: 10px;">
+                    Limpiar Formulario
+                </button>
+
+            </div>
+
         </form>
     </main>
+    <hr>
+    <footer>
+        <p><strong>Aviso de privacidad:</strong> Los datos proporcionados en este formulario serán tratados con la máxima confidencialidad y solo serán utilizados para fines de análisis de incidentes de seguridad.</p>
+        <p>Desarrolado para la clase de desarrollo web 2026</p>
+    </footer>
 
 </body>
+<!--La etiqueta script permite incluir código JavaScript en el documento HTML -->
+<script>
+
+    function confirmarEnvio() {
+        const form = document.getElementById('miFormulario');
+        //Validamos que los campos obligatorios estén completos antes de mostrar la confirmación
+        if (!form.checkValidity()) {
+            form.reportValidity(); // Muestra los mensajes de validación del navegador
+            alert('Por favor, completa todos los campos obligatorios antes de enviar el formulario.');
+            return;
+        }
+    }
+
+    const respuesta = confirm('¿Estás seguro de que deseas enviar el reporte?');
+    if (respuesta) {
+        alert('Reporte enviado con éxito. Gracias por tu colaboración.');
+        document.getElementById('miFormulario').reset(); // Reseteamos el formulario
+    } else {
+        alert('Envío cancelado. Puedes revisar el formulario antes de enviarlo.');
+    }
+    
+
+</script>
+
 </html>
